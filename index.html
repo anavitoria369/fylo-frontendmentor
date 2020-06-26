@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Fylo data storage component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      height: calc(100vh - 16px);
+      font-family: "Raleway", sans-serif;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: hsl(229, 57%, 11%);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .attribution {
+      width: 100%;
+      position: fixed;
+      bottom: 30px;
+      font-size: 20px;
+      text-align: center;
+      z-index: -1;
+    }
+    .attribution a {
+     color: hsl(229, 7%, 55%);
+    }
+
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      padding-left: 250px;
+      padding-right: 15px;
+      position: absolute;
+      padding-bottom: 400px;
+    }
+
+    .options {
+      padding: 40px;
+      border-radius: 10px 110px 10px 10px;
+      margin-bottom: 17.5px;
+      background-color: hsl(228, 56%, 26%);
+    }
+
+    #options__fylo-logo {
+      margin-bottom: 15px;
+    }
+
+    .options__icons {
+      margin-top: 20px;
+      display: flex;
+    }
+
+    .options__icons__menu {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: hsl(229, 57%, 11%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .options__icons__menu:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    .metric {
+      height: 90px;
+      border-radius: 10px;
+      padding: 30px 40px 50px 30px;
+      background-color: hsl(228, 56%, 26%);
+      position: relative;
+      color: hsl(243, 100%, 93%);
+    }
+
+    #metric-progress {
+      width: 100%;
+      margin-bottom: 15px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    #bold {
+      font-weight: 700;
+    }
+
+    .metric__progress-bar {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 22.5px;
+      border-radius: 10px;
+      background-color: #152149;
+      border: none;
+    }
+
+    .metric__progress-bar::before {
+      content: "";
+      position: absolute;
+      top: 4.25px;
+      right: 90px;
+      width: 14.5px;
+      height: 14.5px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    .metric__progress-bar::-moz-progress-bar {
+      margin-top: 2.5px;
+      margin-left: 3.25px;
+      height: 17px;
+      border-radius: 10px;
+      background: linear-gradient(to right, 
+      hsl(6, 100%, 80%), 
+      hsl(335, 100%, 65%));
+    }
+
+    .metric__progress-bar::-webkit-progress-bar {
+      height: 20px;
+      background-color: #152149;
+      border-radius: 10px;
+    }
+
+    .metric__progress-bar::-webkit-progress-value {
+      margin-top: 2.5px;
+      margin-left: 3.25px;
+      height: 17.5px;
+      border-radius: 10px;
+      background: linear-gradient(to right,
+      hsl(6, 100%, 80%), 
+      hsl(335, 100%, 65%));
+    }
+
+    .metric__progress-bar::-webkit-progress-value::before {
+      content: '';
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      position: absolute;
+      right: 0;
+      top: -125%;
+    }
+
+    .metric__max-min {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    #dialogue {
+      background-color: #fff;
+      width: 200px;
+      height: 85px;
+      border-radius: 10px;
+      position: absolute;
+      bottom: -87.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 45px;
+      font-weight: 700;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #dialogue span {
+      font-size: 14px;
+      color: hsl(229, 7%, 55%);
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
+
+    @media only screen and (min-width: 1366px) {
+      body {
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% 50%;
+        background-color: hsl(229, 57%, 11%);
+      }
+
+      .container {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .options {
+        margin-bottom: 0;
+        margin-right: 25px;
+        width: 250px;
+      }
+
+      .metric {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 35px 40px;
+      }
+
+      #dialogue {
+        transform: translateX(50%);
+        top: -105px;
+        left: 230px;
+      }
+
+      #dialogue::before {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+        height: 50px;
+        width: 50px;
+        background-color: #fff;
+      }
+
+      #metric-progress {
+        text-align: left;
+      }
+    }
+
+
+
+
+    
+    
+  </style>
+</head>
+<body>
+  <div class="wallpaper"><img src="./images/bg-desktop.png" alt=""></div>
+  
+  <div class="container">
+    
+    <div class="options"> 
+      
+    <img src="./images/logo.svg" alt="Fylo logo" id="options__fylo-logo">
+    
+       <div class="options__icons"> 
+        <div class="options__icons__menu">
+      <img src="./images/icon-document.svg" alt="document">
+        </div>
+        <div class="options__icons__menu">
+      <img src="./images/icon-folder.svg" alt="folder">
+        </div>
+        <div class="options__icons__menu">
+      <img src="./images/icon-upload.svg" alt="upload">
+        </div>
+       
+      </div>
+
+    </div>
+
+
+
+<div class="metric">
+  <label for="usage" id="metric-progress">You've used <span id="bold"> 815 GB </span> of your storage</label>
+  <progress id="usage" value="81.5" max="100" class="metric__progress-bar"></progress>
+
+  <div class="metric__max-min">
+    <span id="min"> 0 GB </span>
+    <span id="max"> 1000 GB </span>
+  </div>
+
+  <p id="dialogue">185 <span>GB Left</span></p>
+
+</div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
